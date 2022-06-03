@@ -22,13 +22,14 @@ if __name__ == '__main__':
     print("Initialize Model (BERT)")
     cola_model = ColaModel()
 
+    
     checkpoint_callback = ModelCheckpoint(
-        dirpath="./models", monitor="val_loss", mode="min"
+        dirpath="./models", mode="min"
     )
-
+    
     trainer = pl.Trainer(
         gpus=(1 if torch.cuda.is_available() else 0),
-        max_epochs=3,
+        max_epochs=10,
         fast_dev_run=False,
         logger=wandb_logger,
         callbacks=[checkpoint_callback],

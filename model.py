@@ -8,7 +8,7 @@ from transformers import AutoModel
 
 
 class ColaModel(pl.LightningModule):
-    def __init__(self, model_name="google/bert_uncased_L-2_H-128_A-2", lr=1e-2):
+    def __init__(self, model_name="google/bert_uncased_L-2_H-128_A-2", lr=1e-4):
         super(ColaModel, self).__init__()
 
         self.bert = AutoModel.from_pretrained(model_name)
